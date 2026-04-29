@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in — blackbook</title>
+    <link rel="stylesheet" href="/static/css/landing.css">
+    <link rel="stylesheet" href="/static/css/auth.css">
+</head>
+<body class="landing-body dark-mode">
+    <header class="landing-nav">
+        <div class="landing-nav-inner">
+            <a class="landing-brand" href="/">blackbook</a>
+            <nav class="landing-nav-links">
+                <a href="/">Home</a>
+                <a href="{% url 'register' %}">Sign up</a>
+            </nav>
+        </div>
+    </header>
+    <main class="auth-main">
+        <div class="auth-card">
+            <h1>Log in</h1>
+            <form method="post" class="auth-form">
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    <p class="auth-msg auth-msg--error">{{ form.non_field_errors.0 }}</p>
+                {% endif %}
+                <label>{{ form.username.label }}{{ form.username }}</label>
+                <label>{{ form.password.label }}{{ form.password }}</label>
+                <button type="submit" class="landing-btn landing-btn-primary auth-submit">Log in</button>
+            </form>
+            <p class="auth-footer">No account? <a href="{% url 'register' %}">Sign up</a></p>
+        </div>
+    </main>
+    <script src="/static/js/landing.js"></script>
+</body>
+</html>

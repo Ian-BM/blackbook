@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blackbook — Prop-style trade journal &amp; backtesting</title>
+    <link rel="stylesheet" href="/static/css/landing.css">
+</head>
+<body class="landing-body dark-mode">
+    <header class="landing-nav">
+        <div class="landing-nav-inner">
+            <a class="landing-brand" href="/">blackbook</a>
+            <nav class="landing-nav-links" aria-label="Primary">
+                <a href="/">Home</a>
+                {% if user.is_authenticated %}
+                <a href="/dashboard/">Dashboard</a>
+                <a href="/analytics/">Analytics</a>
+                {% endif %}
+            </nav>
+            <div class="landing-nav-cta">
+                {% if user.is_authenticated %}
+                <form action="{% url 'logout' %}" method="post" class="landing-logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="landing-btn landing-btn-ghost">Log out</button>
+                </form>
+                {% else %}
+                <a class="landing-btn landing-btn-ghost" href="{% url 'login' %}">Log in</a>
+                <a class="landing-btn landing-btn-primary" href="{% url 'register' %}">Sign up</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="landing-section landing-hero">
+            <div>
+                <h1>Train Like a Prop Firm Trader. Track Every Trade. Fix What’s Holding You Back.</h1>
+                <p class="sub">A manual backtesting journal with real performance insights, PropFirm rule training, and multi-capital simulation.</p>
+                <div class="landing-hero-ctas">
+                    <a class="landing-btn landing-btn-primary" href="{% if user.is_authenticated %}/dashboard/{% else %}{% url 'register' %}{% endif %}">Start Journaling</a>
+                    <a class="landing-btn" href="{% if user.is_authenticated %}/propfirm/{% else %}{% url 'register' %}{% endif %}">Try PropFirm Mode</a>
+                </div>
+            </div>
+            <div class="landing-mock" aria-hidden="true">
+                <div class="landing-mock-header">
+                    <div class="landing-mock-dots"><span></span><span></span><span></span></div>
+                    <span style="font-size:0.75rem;color:var(--lp-muted);">Dashboard preview</span>
+                </div>
+                <div class="landing-mock-cards">
+                    <div class="landing-mock-card">Total PnL <strong>+$2,840</strong></div>
+                    <div class="landing-mock-card">Win rate <strong>58%</strong></div>
+                    <div class="landing-mock-card">Trades <strong>142</strong></div>
+                </div>
+                <div class="landing-mock-chart">
+                    <div class="landing-mock-bar"></div>
+                    <div class="landing-mock-bar"></div>
+                    <div class="landing-mock-bar"></div>
+                    <div class="landing-mock-bar"></div>
+                    <div class="landing-mock-bar"></div>
+                    <div class="landing-mock-bar"></div>
+                    <div class="landing-mock-bar"></div>
+                    <div class="landing-mock-bar"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing-section landing-section--tight" id="problem">
+            <h2 class="landing-section-title">Most Traders Stay Stuck</h2>
+            <p class="landing-section-lead">Without a system, repetition beats progress. Here’s what keeps people spinning.</p>
+            <div class="landing-problem-grid">
+                <div class="landing-problem-item">
+                    <h3>No structured journaling</h3>
+                    <p>Trades live in screenshots and memory — nothing you can measure.</p>
+                </div>
+                <div class="landing-problem-item">
+                    <h3>No clear performance data</h3>
+                    <p>You feel hot or cold, but you can’t prove what actually works.</p>
+                </div>
+                <div class="landing-problem-item">
+                    <h3>No discipline tracking</h3>
+                    <p>Rules slip until the account tells you — too late.</p>
+                </div>
+                <div class="landing-problem-item">
+                    <h3>Emotional trading</h3>
+                    <p>FOMO and revenge trades erase weeks of good execution.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing-section" id="solution">
+            <h2 class="landing-section-title">One System That Fixes All of That</h2>
+            <p class="landing-section-lead">blackbook turns manual logging into clarity: what you did, why it mattered, and what to change next.</p>
+            <ul class="landing-solution-list">
+                <li>Trade logging — manual and fast, no broker hooks required</li>
+                <li>Asset-based calendar — see PnL and discipline at a glance</li>
+                <li>Strategy analytics — know which setups actually pay</li>
+                <li>Insight engine — surface strengths, weak tags, and patterns</li>
+                <li>PropFirm Mode — practice rule enforcement before you risk the eval</li>
+                <li>Multi-capital simulation — same edge, different account sizes</li>
+                <li>TZS currency support — USD and TZS side by side</li>
+            </ul>
+        </section>
+
+        <section class="landing-section landing-section--tight" id="features">
+            <h2 class="landing-section-title">Built for traders who want an edge</h2>
+            <p class="landing-section-lead">Four pillars — journal, measure, train, scale.</p>
+            <div class="landing-feature-grid">
+                <article class="landing-feature-card">
+                    <div class="icon" aria-hidden="true">📓</div>
+                    <h3>Backtesting Journal</h3>
+                    <p>Log entries, exits, and context fast. Your history becomes searchable truth, not guesswork.</p>
+                </article>
+                <article class="landing-feature-card">
+                    <div class="icon" aria-hidden="true">📊</div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Equity curve, monthly PnL, and win rate — so you know if you’re improving, not just busy.</p>
+                </article>
+                <article class="landing-feature-card">
+                    <div class="icon" aria-hidden="true">🛡️</div>
+                    <h3>PropFirm Training Mode</h3>
+                    <p>Define firm-style rules and see violations before they cost you a funded account.</p>
+                </article>
+                <article class="landing-feature-card">
+                    <div class="icon" aria-hidden="true">💹</div>
+                    <h3>Multi-Capital Simulation</h3>
+                    <p>Preview how the same pip result plays across different capital bases — plan size with confidence.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="landing-section" id="how">
+            <h2 class="landing-section-title">How it works</h2>
+            <p class="landing-section-lead">Four steps. No fluff.</p>
+            <div class="landing-steps">
+                <div class="landing-step">
+                    <h3>Log trades manually</h3>
+                    <p>Capture the setup, tags, and numbers in one flow.</p>
+                </div>
+                <div class="landing-step">
+                    <h3>Track performance</h3>
+                    <p>Calendar and dashboards show what your week and month really looked like.</p>
+                </div>
+                <div class="landing-step">
+                    <h3>Identify mistakes</h3>
+                    <p>Tags and insights spotlight where discipline breaks down.</p>
+                </div>
+                <div class="landing-step">
+                    <h3>Improve strategy</h3>
+                    <p>Double down on what wins; cut what doesn’t pay.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing-section landing-section--tight">
+            <div class="landing-proof">
+                <p><strong style="color:var(--lp-text);">Built for serious traders</strong></p>
+                <p>Designed for discipline and growth — whether you’re building consistency or prepping for a prop eval.</p>
+            </div>
+        </section>
+
+        <section class="landing-section" id="pricing">
+            <h2 class="landing-section-title">Simple pricing</h2>
+            <p class="landing-section-lead">Start free. Upgrade when you’re ready to go all in.</p>
+            <div class="landing-pricing">
+                <div class="landing-price-card">
+                    <span class="tag">Free</span>
+                    <h3>Free</h3>
+                    <ul>
+                        <li>Limited assets</li>
+                        <li>Basic analytics</li>
+                    </ul>
+                </div>
+                <div class="landing-price-card landing-price-card--pro">
+                    <span class="tag">Pro</span>
+                    <h3>Pro</h3>
+                    <ul>
+                        <li>Unlimited assets</li>
+                        <li>Full analytics</li>
+                        <li>PropFirm Mode</li>
+                        <li>Advanced insights</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing-section landing-final" id="cta">
+            <h2>Start improving your trading today</h2>
+            <a class="landing-btn landing-btn-primary" href="{% if user.is_authenticated %}/dashboard/{% else %}{% url 'register' %}{% endif %}">Get Started</a>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <p>blackbook — manual journal, real metrics, prop-style discipline.</p>
+        <button type="button" id="landingTheme" title="Toggle theme" aria-label="Toggle theme">🌓</button>
+    </footer>
+
+    <script src="/static/js/landing.js"></script>
+</body>
+</html>

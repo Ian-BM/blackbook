@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackbook - Strategies</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+</head>
+<body class="dark-mode">
+    <div class="app-shell">
+    <main class="main-content container">
+        <h1>strategies</h1>
+        <section class="panel small">
+            <h2>Add Strategy</h2>
+            <form id="strategyForm">
+                <input type="text" id="strategyName" placeholder="Strategy name" required>
+                <button type="submit">Save</button>
+            </form>
+        </section>
+        <section class="panel">
+            <h2>Strategy List</h2>
+            <ul id="strategyList"></ul>
+        </section>
+    </main>
+    <aside id="sidebar" class="sidebar right">
+        <button id="toggleSidebar" aria-label="Toggle navigation">☰</button>
+        <a href="/dashboard/"><span>Dashboard</span></a>
+            <a href="/calendar/"><span>Calendar</span></a>
+            <a href="/analytics/"><span>Analytics</span></a>
+        <a href="/assets/"><span>Assets</span></a>
+        <a href="/strategies/"><span>Strategies</span></a>
+        <a href="/propfirm/"><span>PropFirm Mode</span></a>
+        <button id="modeSwitch" type="button" title="Toggle theme" aria-label="Toggle theme">◐</button>
+        {% include "includes/sidebar_logout.html" %}
+    </aside>
+    </div>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/trade.js"></script>
+    <script src="/static/js/animations.js"></script>
+</body>
+</html>

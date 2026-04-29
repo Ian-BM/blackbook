@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackbook - Dashboard</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+</head>
+<body class="dark-mode">
+    <div class="app-shell">
+        <main class="main-content container">
+            <h1>blackbook</h1>
+        <section class="cards">
+            <div class="card"><h3>Total PnL (USD)</h3><p id="totalPnl">0</p></div>
+            <div class="card"><h3>Win Rate</h3><p id="winRate">0%</p></div>
+            <div class="card"><h3>Total Trades</h3><p id="totalTrades">0</p></div>
+        </section>
+
+        <section class="charts">
+            <div class="panel">
+                <h2>Equity Curve</h2>
+                <canvas id="equityChart"></canvas>
+            </div>
+            <div class="panel">
+                <h2>Monthly PnL</h2>
+                <canvas id="monthlyChart"></canvas>
+            </div>
+        </section>
+        </main>
+        <aside id="sidebar" class="sidebar right">
+            <button id="toggleSidebar" aria-label="Toggle navigation">☰</button>
+            <a href="/dashboard/"><span>Dashboard</span></a>
+            <a href="/calendar/"><span>Calendar</span></a>
+            <a href="/analytics/"><span>Analytics</span></a>
+            <a href="/assets/"><span>Assets</span></a>
+            <a href="/strategies/"><span>Strategies</span></a>
+            <a href="/propfirm/"><span>PropFirm Mode</span></a>
+            <button id="modeSwitch" type="button" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            {% include "includes/sidebar_logout.html" %}
+        </aside>
+    </div>
+
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+    <script src="/static/js/animations.js"></script>
+</body>
+</html>
