@@ -58,8 +58,17 @@ function initSidebar() {
     });
     sidebar.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        if (window.innerWidth <= 900) sidebar.classList.remove("open");
+        if (window.innerWidth <= 900) {
+          sidebar.classList.remove("open");
+        }
       });
+    });
+    document.addEventListener("click", (e) => {
+      if (window.innerWidth > 900) return;
+      if (!sidebar.classList.contains("open")) return;
+      if (toggle.contains(e.target)) return;
+      if (sidebar.contains(e.target)) return;
+      sidebar.classList.remove("open");
     });
   }
   const modeSwitch = document.getElementById("modeSwitch");

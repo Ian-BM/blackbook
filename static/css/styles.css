@@ -69,6 +69,12 @@ a { color: inherit; text-decoration: none; }
   margin-top: 16px;
 }
 
+.panel canvas {
+  width: 100% !important;
+  max-width: 100%;
+  min-height: 220px;
+}
+
 .section-head,
 .calendar-head {
   display: flex;
@@ -90,6 +96,7 @@ a { color: inherit; text-decoration: none; }
   top: 0;
   height: 100vh;
   transition: var(--transition);
+  overflow-y: auto;
 }
 .sidebar a,
 .sidebar button {
@@ -291,6 +298,10 @@ input:focus, select:focus, textarea:focus {
   font-weight: 700;
 }
 
+.mobile-nav-toggle {
+  display: none;
+}
+
 .sidebar-logout { margin-top: auto; }
 .sidebar-logout-btn {
   width: 100%;
@@ -312,6 +323,13 @@ input:focus, select:focus, textarea:focus {
   .cards,
   .charts,
   .trade-form { grid-template-columns: 1fr; }
+  .section-head,
+  .calendar-head {
+    flex-wrap: wrap;
+  }
+  .row-actions {
+    flex-wrap: wrap;
+  }
   .container {
     margin: 12px auto;
     padding: 0 12px;
@@ -331,23 +349,78 @@ input:focus, select:focus, textarea:focus {
     width: 98vw;
     max-height: 90vh;
     overflow: auto;
+    padding: 14px;
   }
   .sidebar {
     position: fixed;
     right: 0;
     top: 0;
-    transform: translateX(calc(100% - 56px));
-    z-index: 40;
+    transform: translateX(100%);
+    z-index: 70;
     width: 260px;
+    height: 100dvh;
     border-left: 1px solid rgba(148, 163, 184, 0.25);
     box-shadow: -10px 0 30px rgba(2, 8, 23, 0.35);
+    padding-top: 56px;
   }
   .sidebar.open { transform: translateX(0); }
-  .sidebar #toggleSidebar {
-    align-self: flex-start;
-    min-width: 40px;
-    padding: 8px 10px;
+  .mobile-nav-toggle {
+    display: inline-flex;
+    position: fixed;
+    right: 12px;
+    top: 10px;
+    z-index: 80;
+    min-width: 42px;
+    min-height: 42px;
+    padding: 8px;
     background: var(--accent);
     color: #fff;
+    border-color: transparent;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(2, 8, 23, 0.3);
+  }
+  .sidebar a,
+  .sidebar .sidebar-logout-btn,
+  .sidebar #modeSwitch {
+    margin-right: 6px;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+  }
+  .cards .card h3,
+  .panel h2,
+  .panel h3 {
+    margin-top: 0;
+  }
+  .panel canvas {
+    min-height: 180px;
+  }
+  .weekdays {
+    font-size: 12px;
+  }
+  .calendar-cell small {
+    font-size: 11px;
+  }
+  .analytics-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .analytics-cards {
+    grid-template-columns: 1fr;
+  }
+  .trade-form {
+    grid-template-columns: 1fr;
+  }
+  .modal-actions {
+    flex-direction: column;
+  }
+  .row-actions {
+    flex-direction: column;
+  }
+  .calendar-head button,
+  .section-head button {
+    width: 100%;
   }
 }

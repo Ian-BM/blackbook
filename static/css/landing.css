@@ -533,3 +533,39 @@ body.landing-body.light-mode .landing-nav {
 .landing-footer button#landingTheme:hover {
   opacity: 1;
 }
+
+@media (max-width: 900px) {
+  .landing-nav-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+  }
+  .landing-nav-links {
+    justify-content: center;
+    width: 100%;
+  }
+  .landing-nav-cta {
+    width: 100%;
+    justify-content: center;
+  }
+  .landing-section {
+    padding: 52px 14px;
+  }
+  .landing-section--tight {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+  .landing-mock-cards {
+    grid-template-columns: 1fr;
+  }
+  .landing-feature-grid,
+  .landing-pricing,
+  .landing-steps,
+  .landing-problem-grid {
+    grid-template-columns: 1fr;
+  }
+  .landing-final {
+    padding-bottom: 48px;
+  }
+}

@@ -78,3 +78,16 @@
   font-size: 0.8rem;
   margin-top: 4px;
 }
+
+@media (max-width: 600px) {
+  .auth-main {
+    margin: 24px auto;
+    padding: 0 12px;
+  }
+  .auth-card {
+    padding: 20px 16px;
+  }
+  .auth-card h1 {
+    font-size: 1.3rem;
+  }
+}
